@@ -1,0 +1,286 @@
+// main: ../demo.less
+
+// Fixing hint view
+[class*=hint--][aria-label]:after {
+    font-weight: normal;
+    font-size: 14px;
+    padding: 12px;
+    // background: whitesmoke;
+    // color: #333;
+}
+[class*=hint--]:after {
+// background:#383838;color:#fff; border-color: blue;
+}
+
+
+/* NAVBAR */
+// Fixing default navbar behaviour and preparing it to use the burger button
+.navbar, .navbar-end, .navbar-menu, .navbar-start {
+    align-items: stretch;
+    display: flex;
+}
+
+.navbar {
+
+    background: white!important;
+
+    // padding: 0px 30px!important;
+    // Site title
+
+    // Not touching special framework icon effects
+    .navbar-item:not(.is-icon):hover { height:auto;}
+
+    .navbar-brand {
+
+        height: auto;
+
+        a {
+            text-decoration: none;
+        }
+        .site-title, .menu-description {
+            margin-left: 25px;
+            top: 2px;
+            position: relative;
+            color: #999;
+            margin-right: 20px;
+        }
+        img {
+            width: auto;
+        }
+    }
+
+    .navbar-menu {
+        background: white!important;
+    }
+
+    // Ion Icons
+    ion-icon {
+        font-size: 24px;
+        color: #999;
+        pointer-events: none;
+
+        &.social-provider-icon {
+            padding: 5px;
+            color: whitesmoke!important;
+            margin-left: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #ccc;
+        }
+        &.is-site {
+            background: #f1ab2b!important;
+        }
+        &.is-apple {
+            background: #333!important;
+        }
+        &.is-amazon {
+            background: #333!important;
+            color: #febd69!important;
+        }
+    }
+    .icon-link:hover ion-icon {
+        color: whitesmoke!important;
+    }
+    .icon-link.is-active ion-icon {
+        color: whitesmoke!important;
+    }
+
+    .navbar-item {
+
+        // Social account image
+        &.is-account img {
+            height: 20px;
+            width: 20px;
+            max-height: 20px;
+            border-radius: 50%;
+            margin-top: 0px;
+            margin-left: 0px;
+        }
+
+        // User Image
+        .user-image {
+            /* border: 2px solid red; */
+            position: relative;
+            top: 3px;
+        }
+        &.is-separator {
+            opacity: .4;
+            cursor: default;
+        }
+        .button {
+            width: auto;
+            background: transparent;
+            // Hide shadow when clicked by accident
+            &.is-white.is-focused:not(:active), &.is-white:focus:not(:active) {
+                box-shadow: none;
+            }
+        }
+        .span-apikey, .span-datacenter, .span-providers {
+            font-size: .7em;
+            // .bordered();
+            padding: 0 10px;
+        }
+
+
+        .icon-link, .button-datacenter, .button-apikey {
+            opacity: 0.8;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+
+    /* Logged Image user */
+    .provider-img {
+        border: 2px solid #333;
+        height: 30px!important;
+        width: 30px!important;
+        max-height: 30px!important;
+    }
+
+    /* Language */
+    /* Flag Dropdown */
+    .flag-icon {
+        border: 2px solid #555!important;
+        background-size: cover;
+        border-radius: 50px;
+        width: 1.5em;
+        height: 1.5em;
+        text-indent: 20px;
+    }
+
+
+
+    .language-dropdown {
+        .dropdown-menu {
+            max-height: 400px;
+            overflow: auto;
+            border-radius: 13px;
+            box-shadow: 0px 5px 16px rgba(0,0,0,0.05);
+            left: -245px;
+            width: 10px;
+            // display: block;
+            top: 64px;
+
+            .dropdown-item {
+
+               &:hover {
+                   .flag-icon {font-weight: bold;}
+
+               }
+            }
+        }
+    }
+
+
+}
+
+/* CONTAINER */
+.hero {
+    .hero-body {
+        flex-grow: 1;
+        flex-shrink: 0;
+        padding: 5rem 1.5rem;
+    }
+    // Far from the top
+    margin-top: 0px;
+    // .bordered();
+
+    // HEADER
+    section.header {
+        img.site-logo {
+            display: inline-block;
+            // width: 45px;
+            top: 7px;
+            left: -15px;
+            position: relative;
+        }
+        h3.site-title {
+            display: inline-block;
+            margin-top: 35px;
+        }
+        // Separator
+        .login-hr {
+            // border-bottom: 1px solid #bbb;
+
+            margin: .1rem 0;
+            background: transparent;
+        }
+
+    }
+
+    // Site Box
+    // Container Screensets and logo box
+    .box {
+      margin-top: 5rem;
+      // .bordered();
+      max-height: 2000px;
+      min-height: 200px;
+      transition: max-height 1.35s ease-out;
+
+      border-radius: 15px;
+
+      .gigya-placeholder {
+          overflow-x: auto;
+      }
+      // Avatar
+      .avatar {
+          margin-top: -70px;
+          margin-bottom: -40px;
+          img {
+              padding: 10px;
+              background: #fff;
+              border-radius: 50%;
+              max-width: 145px;
+              -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+              box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+          }
+      }
+    }
+
+    /* MESSAGE BOX */
+    .message {
+        width: 50%;
+        margin-left: 25%;
+
+        /* border: 1px solid red; */
+
+        &.logged {
+            /*float: right;*/
+            /* background: beige; */
+            /* border: 1px solid green; */
+
+            /* top: 120px; */
+            position: relative;
+        }
+    }
+
+    /* Logged Sample Content (Overwriting core.css)*/
+    .view-wrapper {
+    padding: 0px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    }
+}
+
+
+
+// Fixing menu for mobile
+.navbar-menu {
+    display: none;
+    &.is-opened {
+        display: flex;
+        justify-content: flex-end;
+        .flag-icon {
+            margin-top: 8px;
+            // border: 2px solid red!important;
+        }
+    }
+}
+@media screen and (min-width: 1024px) {
+    .navbar-menu {display: flex;}
+}
+
+.one-tap-img {
+    .bordered;
+}

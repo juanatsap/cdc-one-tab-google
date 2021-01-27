@@ -1,0 +1,306 @@
+/* - GENERAL IMPORTS - */
+.hidden {
+  display: none!important;
+}
+.flex-centered-container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.flex-lefted-container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: left;
+}
+.flex-righted-container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: right;
+}
+.bordered {
+  border: 2px solid red;
+}
+.outlined {
+  outline: 2px solid red;
+}
+.uppercased {
+  text-transform: uppercase;
+}
+html {
+  background: #F2F6FA;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center 91px;
+}
+/* 0. Global Site Properties */
+html,
+body {
+  font-family: 'Questrial', sans-serif !important;
+  font-size: 14px!important;
+  font-weight: 300;
+}
+a {
+  font-size: 14px!important;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+/* 1. Layout */
+/* 1. Main Gigya Screensets Container */
+button {
+  font-size: 18px!important;
+  font-family: 'Questrial', sans-serif;
+}
+/* 2. Header & Footer */
+#gigya_actions_placeholder button {
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.hero-foot {
+  display: none!important;
+  border: 2px solid #4287c4;
+}
+.sections {
+  margin-top: 60px;
+}
+/* GIGYA FIXES */
+.gigya-screen-caption {
+  color: #999 !important;
+  text-align: center;
+  width: 100%!important;
+  font-family: 'Questrial', sans-serif !important;
+  padding: 0!important;
+  margin-top: 50px!important;
+  padding-bottom: 20px!important;
+  margin-bottom: -30px !important;
+  border-bottom-color: #f1f1f1 !important;
+  font-size: 1.4em !important;
+}
+/* - SKELETON - */
+[class*=hint--][aria-label]:after {
+  font-weight: normal;
+  font-size: 14px;
+  padding: 12px;
+}
+/* NAVBAR */
+.navbar,
+.navbar-end,
+.navbar-menu,
+.navbar-start {
+  align-items: stretch;
+  display: flex;
+}
+.navbar {
+  background: white!important;
+  /* Logged Image user */
+  /* Language */
+  /* Flag Dropdown */
+}
+.navbar .navbar-item:not(.is-icon):hover {
+  height: auto;
+}
+.navbar .navbar-brand {
+  height: auto;
+}
+.navbar .navbar-brand a {
+  text-decoration: none;
+}
+.navbar .navbar-brand .site-title,
+.navbar .navbar-brand .menu-description {
+  margin-left: 25px;
+  top: 2px;
+  position: relative;
+  color: #999;
+  margin-right: 20px;
+}
+.navbar .navbar-brand img {
+  width: auto;
+}
+.navbar .navbar-menu {
+  background: white!important;
+}
+.navbar ion-icon {
+  font-size: 24px;
+  color: #999;
+  pointer-events: none;
+}
+.navbar ion-icon.social-provider-icon {
+  padding: 5px;
+  color: whitesmoke!important;
+  margin-left: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+}
+.navbar ion-icon.is-site {
+  background: #f1ab2b !important;
+}
+.navbar ion-icon.is-apple {
+  background: #333 !important;
+}
+.navbar ion-icon.is-amazon {
+  background: #333 !important;
+  color: #febd69 !important;
+}
+.navbar .icon-link:hover ion-icon {
+  color: whitesmoke!important;
+}
+.navbar .icon-link.is-active ion-icon {
+  color: whitesmoke!important;
+}
+.navbar .navbar-item.is-account img {
+  height: 20px;
+  width: 20px;
+  max-height: 20px;
+  border-radius: 50%;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+.navbar .navbar-item .user-image {
+  /* border: 2px solid red; */
+  position: relative;
+  top: 3px;
+}
+.navbar .navbar-item.is-separator {
+  opacity: 0.4;
+  cursor: default;
+}
+.navbar .navbar-item .button {
+  width: auto;
+  background: transparent;
+}
+.navbar .navbar-item .button.is-white.is-focused:not(:active),
+.navbar .navbar-item .button.is-white:focus:not(:active) {
+  box-shadow: none;
+}
+.navbar .navbar-item .span-apikey,
+.navbar .navbar-item .span-datacenter,
+.navbar .navbar-item .span-providers {
+  font-size: 0.7em;
+  padding: 0 10px;
+}
+.navbar .navbar-item .icon-link,
+.navbar .navbar-item .button-datacenter,
+.navbar .navbar-item .button-apikey {
+  opacity: 0.8;
+}
+.navbar .navbar-item .icon-link:hover,
+.navbar .navbar-item .button-datacenter:hover,
+.navbar .navbar-item .button-apikey:hover {
+  opacity: 1;
+}
+.navbar .provider-img {
+  border: 2px solid #333;
+  height: 30px!important;
+  width: 30px!important;
+  max-height: 30px!important;
+}
+.navbar .flag-icon {
+  border: 2px solid #555 !important;
+  background-size: cover;
+  border-radius: 50px;
+  width: 1.5em;
+  height: 1.5em;
+  text-indent: 20px;
+}
+.navbar .language-dropdown .dropdown-menu {
+  max-height: 400px;
+  overflow: auto;
+  border-radius: 13px;
+  box-shadow: 0px 5px 16px rgba(0, 0, 0, 0.05);
+  left: -245px;
+  width: 10px;
+  top: 64px;
+}
+.navbar .language-dropdown .dropdown-menu .dropdown-item:hover .flag-icon {
+  font-weight: bold;
+}
+/* CONTAINER */
+.hero {
+  margin-top: 0px;
+  /* MESSAGE BOX */
+  /* Logged Sample Content (Overwriting core.css)*/
+}
+.hero .hero-body {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 5rem 1.5rem;
+}
+.hero section.header img.site-logo {
+  display: inline-block;
+  top: 7px;
+  left: -15px;
+  position: relative;
+}
+.hero section.header h3.site-title {
+  display: inline-block;
+  margin-top: 35px;
+}
+.hero section.header .login-hr {
+  margin: 0.1rem 0;
+  background: transparent;
+}
+.hero .box {
+  margin-top: 5rem;
+  max-height: 2000px;
+  min-height: 200px;
+  transition: max-height 1.35s ease-out;
+  border-radius: 15px;
+}
+.hero .box .gigya-placeholder {
+  overflow-x: auto;
+}
+.hero .box .avatar {
+  margin-top: -70px;
+  margin-bottom: -40px;
+}
+.hero .box .avatar img {
+  padding: 10px;
+  background: #fff;
+  border-radius: 50%;
+  max-width: 145px;
+  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+.hero .message {
+  width: 50%;
+  margin-left: 25%;
+  /* border: 1px solid red; */
+}
+.hero .message.logged {
+  /*float: right;*/
+  /* background: beige; */
+  /* border: 1px solid green; */
+  /* top: 120px; */
+  position: relative;
+}
+.hero .view-wrapper {
+  padding: 0px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.navbar-menu {
+  display: none;
+}
+.navbar-menu.is-opened {
+  display: flex;
+  justify-content: flex-end;
+}
+.navbar-menu.is-opened .flag-icon {
+  margin-top: 8px;
+}
+@media screen and (min-width: 1024px) {
+  .navbar-menu {
+    display: flex;
+  }
+}
+.one-tap-img {
+  /* border: 2px solid red; */
+  cursor: pointer;
+}

@@ -1,0 +1,173 @@
+<template>
+    <!-- BRAND -->
+    <div class="navbar-brand">
+        <a href="#" class="navbar-item hint--bottom hint--bounce hint--infoo hint--rounded " aria-label="Goto Home">
+            <img class="menu-pic site-logo" src="img/logos/loading.png" width="150" style="float:none;" alt="{{Title}}" onerror="showErrorLogo(this)">
+            <h5 class="menu-description is-size-5 has-text-weight-bold">CDC Starter Kit</h5>
+            <!-- <h5 class="site-title is-size-5 has-text-weight-bold">{{Title}}</h5> -->
+        </a>
+
+        <!-- NOT LOGGED SECTION -->
+        <div class="navbar-start not-logged">
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link is-activee hint--bottom hint--bounce hint--errorr hint--mediumm hint--rounded " href="javascript:registerWithRaaS('not_logged_placeholder');" aria-label="Sign Up!">
+                    <ion-icon name="person-add-outline"></ion-icon>
+                    <span class="indicator"></span>
+                </a>
+            </div>
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link hint--bottom hint--bounce hint--errorr hint--mediumm hint--rounded " href="javascript:liteRegisterWithRaaS();" aria-label="Subscribe to our newsletters!">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <span class="indicator"></span>
+                </a>
+            </div>
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link hint--bottom hint--bounce hint--errorr hint--mediumm hint--rounded " href="https://github.com/gigya/cdc-starter-kit/" target="_blank" aria-label="GitHub for CDC Starter Kit">
+                    <ion-icon name="logo-github"></ion-icon>
+                    <span class="indicator"></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- LOGGED SECTION -->
+        <div class="navbar-start logged hidden">
+            <!-- Navbar Search -->
+
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link is-primary hint--bottom hint--bounce hint--infoo hint--rounded " aria-label="Sample content" href="#">
+                    <ion-icon name="heart-outline"></ion-icon>
+                </a>
+
+            </div>
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link is-primary hint--bottom hint--bounce hint--infoo hint--rounded " aria-label="Sample content" href="#">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                    <span class="indicator"></span>
+                </a>
+
+            </div>
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link is-active hint--bottom hint--bounce hint--infoo hint--medium hint--rounded " aria-label="Subscribe to our newsletters!" href="javascript:liteRegisterWithRaaS();">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <span class="indicator"></span>
+                </a>
+
+            </div>
+            <div class="navbar-item is-icon drop-trigger">
+                <a class="icon-link hint--bottom hint--bounce hint--errorr hint--mediumm hint--rounded " href="https://github.com/gigya/cdc-starter-kit/" target="_blank" aria-label="GitHub for CDC Starter Kit">
+                    <ion-icon name="logo-github"></ion-icon>
+                    <span class="indicator"></span>
+                </a>
+            </div>
+
+
+            <div class="navbar-item is-icon open-chat">
+                <a class="icon-link is-primary hint--bottom hint--bounce hint--infoo hint--rounded " aria-label="Sample content" href="#">
+                    <ion-icon name="chatbox-outline"></ion-icon>
+                    <span class="indicator"></span>
+                </a>
+            </div>
+            <div class="modal sample-content-modal">
+              <div class="modal-background"></div>
+              <div class="modal-content">
+                <!-- Any other Bulma elements you want -->
+                <div class="notification is-infoo is-light is-size-5 has-text-centered">
+                  Sample Content
+                </div>
+
+              </div>
+              <!-- <button class="modal-close is-large" aria-label="close"></button> -->
+            </div>
+        </div>
+
+
+        <!-- Nav Bar  MOBILE-->
+        <div class="navbar-burger hint--bottom-left hint--bounce hint--rounded " aria-label="Open Menu..." onclick="toggleBurgerMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+    <!-- Menu -->
+    <div class="navbar-menu">
+        <div class="navbar-end both-logged">
+
+            <!-- System Info (Datacerner and API Key) -->
+            <div class="navbar-start">
+                <div class="navbar-item">
+                    <button class="button-datacenter hint--bottom hint--bounce hint--infoo hint--mediumm hint--rounded button button is-white is-hovered" aria-label="Datacenter">
+                        <ion-icon name="server-outline"></ion-icon>
+                        <span class="span-datacenter has-text-grey"></span>
+                    </button>
+                </div>
+                <div class="navbar-item">
+                    <button class="button-apikey hint--bottom-left hint--bounce hint--infoo hint--mediumm hint--rounded button is-white is-hovered" aria-label="{{Api Key}}">
+                        <ion-icon name="key-outline"></ion-icon>
+                        <span class="span-apikey has-text-grey"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="navbar-item is-icon drop-trigger is-separator">|</div>
+
+            <!-- NOT LOGGED SECTION -->
+            <div class="navbar-item is-icon drop-trigger not-logged">
+                <a class="icon-link hint--bottom hint--bounce hint--infoo hint--mediumm hint--rounded " aria-label="Login" href="javascript:showOrHighlightLoginScreen();">
+                    <ion-icon name="person-outline"></ion-icon>
+                </a>
+            </div>
+
+            <!-- LOGGED SECTION -->
+
+            <!-- User Logged Icon. EDIT PROFILE Action -->
+            <div class="logged hidden navbar-item">
+                <button class="button-providers hint--bottom hint--bounce hint--infoo hint--mediumm hint--rounded button button is-white is-hovered" aria-label="Providers">
+                    <!-- <ion-icon name="apps-outline"></ion-icon> -->
+                    <span class="span-providers has-text-grey">Providers:</span>
+                </button>
+            </div>
+            <div class="logged hidden navbar-item is-icon drop-trigger is-separator">|</div>
+            <div class="logged hidden navbar-item is-account is-not-icon hint--bottom hint--bounce hint--infoo hint--mediumm hint--rounded " aria-label="Edit Profile">
+                <a class="icon-link" href="edit-profile.html">
+                    <div class="user-image">
+                        <ion-icon class="not-hidden" name="person-outline"></ion-icon>
+                        <img class="hidden provider-img" src="img/framework/profile_default_pic_small.png">
+                        <span class="indicator"></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Logout Icon. LOGOUT ACTION -->
+            <div class="logged hidden navbar-item is-icon drop-trigger">
+                <a class="icon-link hint--bottom hint--bounce hint--infoo hint--mediumm hint--rounded " aria-label="logout" href="javascript:logoutWithRaaS(gotoUnloggedPage)">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                </a>
+            </div>
+        </div>
+
+        <!--Basic Dropdown For Languages-->
+        <div class="navbar-item is-icon drop-trigger is-separator">|</div>
+        <div class="language-dropdown dropdown is-spaced is-accent dropdown-trigger">
+            <div class="flag-container navbar-item hint--bottom-left hint--bounce hint--successs hint--mediumm hint--rounded " aria-label="English">
+                <a href="javascript:toggleLanguageDropDown()">
+                    <span class="flag-icon"></span>
+                </a>
+            </div>
+            <div class="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                </div>
+            </div>
+        </div>
+        <div class="navbar-item is-icon drop-trigger is-separator">|</div>
+        <div class="navbar-item one-tap-google">
+            <button class="button-datacenter hint--bottom-left hint--bounce hint--infoo hint--mediumm hint--rounded button button is-white is-hovered" aria-label="OneTap Google"">
+                    <!-- <ion-icon name="logo-google"></ion-icon> -->
+                    <img class="one-tap-img" src="img/logos/google.png" onerror="showErrorLogo(this)" onclick="loadOneTapGoogle()"/>
+            </button>
+        </div>
+        <div class="navbar-item is-icon drop-trigger is-separator">|</div>
+
+    </div>
+
+</template>
