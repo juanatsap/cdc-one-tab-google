@@ -1,210 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-        <meta name="google-signin-client_id" content="157999256223-a0sh9tvk26t3f4qo8mqcnlvf70gd1gio.apps.googleusercontent.com">
-        <title>Gigya login test</title>
-        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-        <style>
-        .gigya-image[data-background-size="fit"] {
-            background-size: contain;
-            text-align: center;
-        }
-        .gigya-style-modern div.gigya-screen-dialog-close > a > img {
-            margin-top: 11px;
-            vertical-align: initial;
-            border: 0px;
-            width: auto;
-            width: 8px !important;
-        }
-        .gigya-screen .gigya-layout-cell {
-            text-align: center;
-            float: left;
-            width: 100% !important;
-        }
-        .gigya-screen.v2.landscape {
-            padding: 10px 43px;
-            width: 400px;
-        }
-        .gigya-screen-content div.gigya-screen.landscape {
-          padding-left: 43px;
-          padding-right: 43px;
-          width: 400px !important;
-      }
-        </style>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-        <link rel="stylesheet" href="https://github.wdf.sap.corp/pages/designsystem/com.sap.designsystem.global/css/docs.css"/>
-        <script type="text/javascript" src="https://cdns.gigya.com/js/gigya.js?apiKey=3_P6eTVo5EpI6zoB2c1ZgblyCrmx8OMOlrA932HVKEhhHCHwTdUJbBBEpAocpkb_nM">
-        {
-          lang: 'en',
-          autoLogin: false,
-          customEventMap: {
-       eventMap: [{
-           events: '*',
-           args: [function(e) {
-               return e;
-           }],
-           method: function(e) {
-               if (e.fullEventName === 'accounts.login') {
-                 console.log(e);
-                   // Increment number of logins count.
-                   gigya.accounts.setAccountInfo({
-                       data: {
-                           // This integer field must have been previously added to the site's schema via the UI Builder or accounts.setSchema API
-                           previousLogins: (e.data.previousLogins || 0) + 1
-                       }
-                   });
-                   // If this is the 3rd login.
-                   if (typeof(e.data.previousLogins) !== 'undefined') {
-                       if (e.data.previousLogins == 2) {
-                           // You would fire your custom Screen-Set here
-                           gigya.accounts.showScreenSet({screenSet:'siteC-ProfileUpdate',startScreen:'progressive',lang:'es'});
+<head>
+    <title>Gigya One Tap Test</title>
 
-                       }
-                   }
-               }
-           }
-       }],
-   }
-        }
-        </script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-                <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
-                <style>
-                    body {
-                        font-family: Verdana, Arial;
-                    }
-                </style>
+    <meta charset="utf-8" />
+    <meta name="google-signin-client_id" content="157999256223-a0sh9tvk26t3f4qo8mqcnlvf70gd1gio.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-            </head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                <strong>SAP CDC</strong> Auto Login with Google Demo
+            </h1>
+            <p class="title">
+                <p>The website will detect if you have a session open and will ask you to login in Gigya using the Access Token from Google.<br><br>To test this flow you need to have a Google session open in your browser.</p>
+            </p>
+            <hr />
+            <div id="gigya-logged">You are logged-in as user:
+                <div id="gigya-logged-uid"></div>
+            </div>
+            <hr /> Please, log out and refresh to test the functionality.
+            <br />
+            <br />
+            <a href="#" onclick="logout()">Logout</a>
 
-            <body>
-
-                <section class="section">
-                <div class="container">
-                  <h1 class="title">
-                    Welcome!
-                  </h1>
-                  <p class="subtitle">
-                      <strong>SAP CDC</strong> Auto Login with Google Demo!
-                  </p>
-                  <p>
-
-                  </p>
-                  <div id="kakao"></div>
-                  <p>
-                    <h1 id="titulo" style="display:none;">Congratulations for your login <span id="nombre"></span>!</h1>
-                      <br />
-                      <br />
-                      <p></p><br><br>
-                      <p>The website will detect if you have a session open and will ask you to login in Gigya using the Access Token from Google.<br><br>To test this flow you need to have a Google session open in your browser.</p>
-                      <!--<a href="#" onclick="myCustom();">Registration / Login</a>-->
-                      <br />
-                      <br />
-                      <div id="gigya-logged"></div>
-                  </p>
-                  <p>
-                      <br />
-                      <br />
-                      <br />
-                      <br />
-                      <a href="#" onclick="gigya.accounts.logout();">Logout</a>
-                  </p>
-                </div>
-              </section>
+        </div>
+    </section>
 
 
 
 
-        <script>
+    <script type="text/javascript" lang="javascript" src="logged.js"></script>
+    <script type="text/javascript" src="https://cdns.gigya.com/js/gigya.js?apiKey=3_P6eTVo5EpI6zoB2c1ZgblyCrmx8OMOlrA932HVKEhhHCHwTdUJbBBEpAocpkb_nM"></script>
 
-                function myCustom(){
-                  gigya.accounts.showScreenSet({screenSet:"chrome-RegistrationLogin"});
-                }
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js" onLoad="handleClientLoad();"></script>
+</body>
 
-                function handleClientLoad() {
-                  // Load the API's client and auth2 modules.
-                  // Call the initClient function after the modules load.
-
-                  gigya.accounts.getAccountInfo({callback:function(ev){
-                    //debugger;
-                    if(ev.errorCode !== 0 ){
-                        gapi.load('client:auth2', initClient);
-
-                    }else{
-                        document.getElementById("gigya-logged").innerHTML = "you are logged-in as user: "+ev.UID+" Please, log out and refresh to test the functionality.";
-                    }
-
-                  }});
-
-
-                }
-
-                function initClient(){
-
-                  var googleAuth = gapi.auth2.init({
-                    client_id: '157999256223-a0sh9tvk26t3f4qo8mqcnlvf70gd1gio.apps.googleusercontent.com',
-                    'scope': 'https://www.googleapis.com/auth/plus.login'
-                  }).then(function(){
-
-
-                    var GoogleUser = gapi.auth2.getAuthInstance().currentUser.get();
-
-
-                    //If there is a google session
-                    if(GoogleUser.isSignedIn()){
-
-                      var GoogleUser = gapi.auth2.getAuthInstance().currentUser.get();
-
-                      function onAfterDelegate(name,photo){
-
-                          function NotifyLoginCall(){
-                            gigya.socialize.notifyLogin({"providerSessions":{"googlePlus":{"authToken":gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).access_token}}});
-
-                          }
-
-                        document.getElementById("gigya-name").innerHTML = GoogleUser.getBasicProfile().getName();
-                        document.getElementById("gigya-google-image").innerHTML = '<img src='+GoogleUser.getBasicProfile().getImageUrl()+'></img>'
-                        document.getElementById("gigya-button-google").addEventListener("click", function(){
-                        //Hide the screenSet
-                        gigya.accounts.hideScreenSet({screenSet:"chrome-RegistrationLogin"});
-                        //Call to notifyLogin
-                        NotifyLoginCall();
-
-                        });
-                      }
-                      function NotifyLoginCall(){
-                        gigya.socialize.notifyLogin({"providerSessions":{"googlePlus":{"authToken":gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse(true).access_token}}});
-
-                      }
-                      NotifyLoginCall();
-                      //gigya.accounts.showScreenSet({screenSet:"chrome-RegistrationLogin",startScreen:"GoogleLogin",onAfterScreenLoad:onAfterDelegate});
-                    }
-                  //console.log(gapi.auth2.getAuthInstance().currentUser.get().wc.access_token);
-                  });
-                }
-
-                function onLoginFun(e){
-                    document.getElementById("gigya-logged").innerHTML = "you are logged-in as user: "+e.UID+" Please, log out and refresh to test the functionality.";
-                }
-
-                function onLogoutFun(e){
-                  document.getElementById("gigya-logged").innerHTML = "Currently, you don't have a session."
-                }
-
-                gigya.accounts.addEventHandlers({
-                  onLogin:onLoginFun,
-                  onLogout:onLogoutFun
-                });
-
-
-
-
-        </script>
-        <script src="https://apis.google.com/js/api.js" onLoad="handleClientLoad();"></script>
-    </body>
-    </html>
+</html>
